@@ -14,6 +14,7 @@ body {
 .label {
   left: 10px;
   top: 16px;
+  pointer-events: none;
 }
 
 .text-input {
@@ -36,6 +37,7 @@ body {
   background-color: white;
   width: 100%;
   z-index: -2;
+  /* pointer-events: none; */
 }
 
 .text-input::placeholder {

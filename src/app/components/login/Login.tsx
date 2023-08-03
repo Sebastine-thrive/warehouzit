@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import axios from "axios";
 
-import { FaUser } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai";
 
 import visible_icon from "../../../../public/assets/visibility-on.svg";
@@ -70,8 +68,7 @@ const LoginForm: React.FC = () => {
         />
 
         <div className="user-icon absolute ">
-          <FaUser width={25} height={25} />
-          {/* <AiOutlineUser width={25} height={25} /> */}
+          <AiOutlineUser width={25} height={25} />
         </div>
       </div>
 

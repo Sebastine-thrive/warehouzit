@@ -24,7 +24,7 @@ const RoleSelector = () => {
             role === "spaceseeker" ? "customGreen" : "[#e2e7f3]"
           } flex text-${
             role === "spaceseeker" ? "white" : "customGray"
-          } items-center sm:w-[45%] md:w-[40%] h-12 rounded-md flex justify-center text-center hover:cursor-pointer px-3`}
+          } items-center w-[40%] h-12 rounded-md flex justify-center text-center hover:cursor-pointer px-3`}
           onClick={() => setSpaceSeeker()}
         >
           {" "}
