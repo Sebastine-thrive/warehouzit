@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { useStateContext } from "../../../../context/StateContext";
 import axios, { AxiosResponse } from "axios";
 
-import { toast, ToastContainer } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
   EmptyUsername,
@@ -55,14 +56,19 @@ const SignupForm: React.FC = () => {
   const [confirmPasswordVisibility, setConfirmPasswordVisibility] =
     useState<boolean>(false);
   const [agreement, setAgreement] = useState<boolean>(true);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [successMessage, setSuccessMessage] = useState<string>("");
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>();
+
+  const successNotify = () =>
+    toast.success(`Signup Sucessful!, ${successMessage}`);
+  const errorNotify = () => toast.error("Sorry,");
 
   const handlePasswordVisibility = () => {
     setPasswordVisibility((prevState) => !prevState);
@@ -74,6 +80,14 @@ const SignupForm: React.FC = () => {
 
   const handleAgreement = () => {
     setAgreement((prevState) => !prevState);
+  };
+
+  const resetForm = () => {
+    setUsername("");
+    setFirstName(""), setLastName("");
+    setPassword("");
+    setEmail(""), setConfirmPassword("");
+    setPhoneNumber("");
   };
 
   // submit function
@@ -94,14 +108,19 @@ const SignupForm: React.FC = () => {
       "https://warehouzitserver.onrender.com/api/v1/auth/register";
 
     const sendRequest = async () => {
+      resetForm();
+      setLoading(true);
+
       try {
         const response = await axios.post<ResponseData>(postUrl, formData);
         if (response.data.success) {
           setSuccessMessage(response.data.message);
           console.log(successMessage);
+          successNotify();
           setErrorMessage("");
         } else {
           setErrorMessage(response.data.message);
+          errorNotify();
           setSuccessMessage("");
         }
       } catch (error) {
@@ -116,6 +135,8 @@ const SignupForm: React.FC = () => {
 
   return (
     <>
+      <Toaster position="top-center" reverseOrder={false} />
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="input-container my-3 ">
           <input
@@ -325,12 +346,14 @@ const SignupForm: React.FC = () => {
             value="agreement"
             checked={agreement}
             onChange={() => handleAgreement()}
+            className=" xss:text-[8px] xs:text-[10px] md:text-sm  "
           />{" "}
           I agree to the terms of service
         </div>
 
         <button
           type="submit"
+          disabled={loading}
           className="w-full bg-customGreen text-white py-3 rounded-md font-bold"
         >
           {" "}

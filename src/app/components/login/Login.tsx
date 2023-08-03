@@ -3,7 +3,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 
-// import { FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai";
 
 import visible_icon from "../../../../public/assets/visibility-on.svg";
@@ -70,9 +70,8 @@ const LoginForm: React.FC = () => {
         />
 
         <div className="user-icon absolute ">
-          <AiOutlineUser width={25} height={25} />
-
-          {/* <Image src={AiOutlineUser} width={25} height={25} alt=" user icon" /> */}
+          <FaUser width={25} height={25} />
+          {/* <AiOutlineUser width={25} height={25} /> */}
         </div>
       </div>
 
@@ -94,8 +93,8 @@ const LoginForm: React.FC = () => {
         </div>
       </div>
 
-      <div className="agreement mb-6 flex justify-between">
-        <div>
+      <div className="agreement mb-6 flex items-center justify-between xxs:text-[8px] sm:text-[12px]">
+        <div className="flex items-center ">
           <input
             type="checkbox"
             name="agreement"
@@ -103,10 +102,10 @@ const LoginForm: React.FC = () => {
             checked={agreement}
             onChange={() => handleLoginAgreement()}
           />{" "}
-          I agree to the terms of service
+          <p className="ml-3"> I agree to the terms of service </p>
         </div>
 
-        <p className="cursor pointer"> Forgot Password?</p>
+        <p className="cursor-pointer "> Forgot Password?</p>
       </div>
 
       <button
