@@ -2,26 +2,117 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #e2e7f3;
+}
+
+.input-container {
+  width: 100%;
+  position: relative;
+}
+
+.label {
+  left: 10px;
+  top: 16px;
+}
+
+.text-input {
+  padding: 0.8rem;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s;
+  z-index: 2;
+}
+
+.label::before {
+  content: "";
+  height: 5px;
+  position: absolute;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  z-index: -2;
+}
+
+.text-input::placeholder {
+  z-index:-2;
+  color: transparent;
+}
+
+.text-input:focus + .label,
+.text-input:not(:placeholder-shown) + .label {
+  top: -8px;
+  padding: 0;
+  background-color: white;
+  color: #fd7f0a;
+  font-size: 14px;
+}
+
+.visibility-icon,
+.user-icon {
+  position: absolute;
+  left: 85%;
+  margin-top: -0.75rem;
+  z-index: 2;
+  top: 28px;
+}
+
+.google_img_container {
+  background: linear-gradient(to bottom, #b5c0ca, #fcf1cc);
+}
+
+.login-label {
+  left: 10px;
+  top: 25px;
+}
+
+.login-text-input {
+  padding: 0.8rem;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s;
+  z-index: 2;
+}
+
+.login-label::before {
+  content: "";
+  height: 5px;
+  position: absolute;
+  left: 0;
+  background-color: white;
+  z-index: -2;
+}
+
+.login-text-input::placeholder {
+  color: transparent;
+  z-index: 0;
+}
+
+.login-text-input:focus + .login-label,
+.login-text-input:not(:placeholder-shown) + .login-label {
+  top: 0;
+  padding: 0;
+  background-color: white;
+  color: #fd7f0a;
+  font-size: 14px;
+}
+
+.login-visibility-icon {
+  left: 85%;
+  z-index: 2;
+  top: 25px;
+}
+
+.user-icon {
+  left: 86%;
+  z-index: 2;
+  top: 35px;
 }
