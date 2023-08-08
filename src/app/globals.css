@@ -37,21 +37,30 @@ body {
   background-color: white;
   width: 100%;
   z-index: -2;
-  /* pointer-events: none; */
+  pointer-events: none;
 }
 
 .text-input::placeholder {
   z-index: -2;
   color: transparent;
+  background-color: white;
 }
 
 .text-input:focus + .label,
 .text-input:not(:placeholder-shown) + .label {
   top: -8px;
-  /* margin-left: 1rem; */
   background-color: white;
-  color: #fd7f0a;
   font-size: 14px;
+  pointer-events: none;
+}
+
+.text-input-error:focus + .label,
+.text-input-error:not(:placeholder-shown) + .label {
+  top: -8px;
+  background-color: white;
+  font-size: 14px;
+  pointer-events: none;
+  color: #ef4444;
 }
 
 .visibility-icon,
@@ -103,8 +112,9 @@ body {
   top: 0;
   padding: 0;
   background-color: white;
-  color: #fd7f0a;
+  color: customGreen;
   font-size: 14px;
+  pointer-events: none;
 }
 
 .login-visibility-icon {

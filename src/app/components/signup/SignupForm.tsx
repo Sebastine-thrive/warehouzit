@@ -138,9 +138,14 @@ const SignupForm: React.FC = () => {
       <Toaster position="top-center" reverseOrder={false} />
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="input-container my-3 ">
+        <div className="input-container my-6">
           <input
-            className="text-input placeholder-customGray border-2  border-customGray focus:placeholder-opacity-100 focus:border-customGreen my-1 z-50"
+            className={`text-input 
+    placeholder-customGray 
+    border-2 focus:placeholder-opacity-100
+    my-1 z-50 ${errors?.username ? "border-red-500" : "border-customGray"} ${
+              errors?.username ? "text-input-error" : "text-input"
+            }`}
             type="text"
             name={username}
             placeholder="Username"
@@ -149,7 +154,7 @@ const SignupForm: React.FC = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
 
-          <label className="label absolute z-0 transition-all duration-200 px-1  text-gray-300 ">
+          <label className="label absolute z-0 transition-all text-customGray duration-200 px-1">
             Username
           </label>
 
@@ -159,9 +164,14 @@ const SignupForm: React.FC = () => {
           </div>
         </div>
 
-        <div className="input-container my-3 ">
+        <div className="input-container my-6 ">
           <input
-            className="text-input placeholder-customGray border-2  border-customGray focus:placeholder-opacity-100 focus:border-customGreen my-1 z-50"
+            className={`text-input 
+    placeholder-customGray 
+    border-2 focus:placeholder-opacity-100
+    my-1 z-50 ${errors?.firstname ? "border-red-500" : "border-customGray"} ${
+              errors?.firstname ? "text-input-error" : "text-input"
+            }`}
             type="text"
             name="firstname"
             placeholder="firstname"
@@ -178,9 +188,14 @@ const SignupForm: React.FC = () => {
           </div>
         </div>
 
-        <div className="input-container my-3">
+        <div className="input-container my-6">
           <input
-            className="text-input placeholder-customGray border-2  border-customGray focus:placeholder-opacity-100 focus:border-customGreen my-1 z-50"
+            className={`text-input 
+    placeholder-customGray 
+    border-2 focus:placeholder-opacity-100
+    my-1 z-50 ${errors?.lastname ? "border-red-500" : "border-customGray"} ${
+              errors?.lastname ? "text-input-error" : "text-input"
+            }`}
             type="text"
             name="firstname"
             placeholder="lastname"
@@ -198,9 +213,14 @@ const SignupForm: React.FC = () => {
           </div>
         </div>
 
-        <div className="input-container my-3">
+        <div className="input-container my-6">
           <input
-            className="text-input placeholder-customGray border-2  border-customGray focus:placeholder-opacity-100 focus:border-customGreen my-1 z-50"
+            className={`text-input 
+    placeholder-customGray 
+    border-2 focus:placeholder-opacity-100
+    my-1 z-50 ${errors?.email ? "border-red-500" : "border-customGray"} ${
+              errors?.email ? "text-input-error" : "text-input"
+            }`}
             type="text"
             name="email"
             placeholder="Email"
@@ -218,7 +238,7 @@ const SignupForm: React.FC = () => {
           <label className="label absolute z-0 transition-all duration-200 px-1  text-gray-300 ">
             Email
           </label>
-          <div className="flex items-center my-1">
+          <div className="flex items-center">
             {errors.email?.type === "pattern" && (
               <IncorrectEmailErrorComponent />
             )}{" "}
@@ -229,9 +249,14 @@ const SignupForm: React.FC = () => {
           </div>
         </div>
 
-        <div className="input-container my-3 ">
+        <div className="input-container my-6 ">
           <input
-            className="text-input placeholder-customGray border-2  border-customGray focus:placeholder-opacity-100 focus:border-customGreen my-1 z-50"
+            className={`text-input 
+    placeholder-customGray 
+    border-2 focus:placeholder-opacity-100
+    my-1 z-50 ${errors?.phoneNumber ? "border-red-500" : "border-customGray"} ${
+              errors?.phoneNumber ? "text-input-error" : "text-input"
+            }`}
             type="text"
             name="phoneNumber"
             {...register("phoneNumber", {
@@ -250,7 +275,7 @@ const SignupForm: React.FC = () => {
           <label className="label absolute z-0 transition-all duration-200 px-1  text-gray-300 ">
             Phone Number
           </label>
-          <div className="flex items-center my-1">
+          <div className="flex items-center">
             {errors.phoneNumber?.type === "pattern" && (
               <IncorrectPhoneNumberComponent />
             )}{" "}
@@ -263,9 +288,14 @@ const SignupForm: React.FC = () => {
           </div>
         </div>
 
-        <div className="input-container relative my-3 ">
+        <div className="input-container relative my-6 ">
           <input
-            className="text-input placeholder-customGray border-2  border-customGray focus:placeholder-opacity-100 focus:border-customGreen my-1 z-50"
+            className={`text-input 
+    placeholder-customGray 
+    border-2 focus:placeholder-opacity-100
+    my-1 z-50 ${errors?.password ? "border-red-500" : "border-customGray"} ${
+              errors?.password ? "text-input-error" : "text-input"
+            }`}
             type={passwordVisibility ? "text" : "password"}
             name="password"
             placeholder="password"
@@ -297,9 +327,14 @@ const SignupForm: React.FC = () => {
           </div>
         </div>
 
-        <div className="input-container my-3 ">
+        <div className="input-container my-6 ">
           <input
-            className="text-input placeholder-customGray border-2  border-customGray focus:placeholder-opacity-100 focus:border-customGreen my-1 z-50"
+            className={`text-input 
+    placeholder-customGray 
+    border-2 focus:placeholder-opacity-100
+    my-1 z-50 ${
+      errors?.confirmPassword ? "border-red-500" : "border-customGray"
+    } ${errors?.confirmPassword ? "text-input-error" : "text-input"}`}
             type={confirmPasswordVisibility ? "text" : "password"}
             name="confirmPassword"
             placeholder="Confirm password"
@@ -326,7 +361,7 @@ const SignupForm: React.FC = () => {
             />
           </div>
 
-          <div className="flex items-center my-1">
+          <div className="flex items-center">
             {errors.confirmPassword?.type === "validate" && (
               <IncorrectPasswordConfirmErrorComponent />
             )}{" "}
@@ -362,7 +397,7 @@ const SignupForm: React.FC = () => {
 
         <div className="mt-6 grid grid-cols-3 items-center text-gray-400">
           <hr className="border-gray-400" />
-          <p className="text-center text-sm font-semibold text-black">
+          <p className="text-center text-sm font-semibold text-black mx-2">
             {" "}
             or continue with{" "}
           </p>

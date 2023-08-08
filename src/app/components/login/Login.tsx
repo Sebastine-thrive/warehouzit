@@ -32,7 +32,7 @@ const InputField: React.FC<InputFieldProps> = ({
       placeholder={type}
     />
 
-    <label className="login-label absolute transition-all duration-200 px-1  text-gray-300 ">
+    <label className="login-label absolute transition-all duration-200 px-1  text-gray-300 pointer-events-none">
       {label}
     </label>
   </div>
@@ -115,7 +115,7 @@ const LoginForm: React.FC = () => {
 
       <div className="mt-6 grid grid-cols-3 items-center text-gray-400">
         <hr className="border-gray-400" />
-        <p className="text-center text-sm font-semibold text-black">
+        <p className="text-center text-sm font-semibold text-black ">
           {" "}
           or continue with{" "}
         </p>

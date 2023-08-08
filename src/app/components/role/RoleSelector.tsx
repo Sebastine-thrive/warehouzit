@@ -29,7 +29,7 @@ const RoleSelector = () => {
         >
           {" "}
           <FaUser />{" "}
-          <p className="ml-3 sm:text-sm md:text-base">Space Seekers </p>
+          <p className="ml-3 sm:text-sm md:text-base"> Space Seekers </p>
         </div>
         <div
           className={` role bg-${
